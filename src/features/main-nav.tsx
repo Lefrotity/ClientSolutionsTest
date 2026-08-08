@@ -15,18 +15,21 @@ import {
 } from 'lucide-react'
 import { SideMenuItem, SideMenu, SideMenuCollapseButton } from '../components/side-menu'
 import { ROUTES } from '../routes/routes'
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 
 function MainNav() {
   const navigate = useNavigate()
   const location = useLocation()
 
   const [collapsed, setCollapsed] = useState(false)
-  const toggle = () => setCollapsed((c) => !c)
+  const toggle = useCallback(() => setCollapsed((c) => !c), [])
 
-  const onItemClick = (id: string) => {
-    navigate(id)
-  }
+  const onItemClick = useCallback(
+    (id: string) => {
+      navigate(id)
+    },
+    [navigate],
+  )
 
   const getIsActive = (id: string) => location.pathname.startsWith(id)
 

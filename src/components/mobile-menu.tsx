@@ -10,7 +10,11 @@ export function MobileMenu({ children }: MobileMenuProps) {
   return <section className='flex'>{children}</section>
 }
 
-export function MobileMenuItem({ id, label, icon, children, onClick, active }: SideMenuItemProps) {
+type MobileMenuItemProps = Omit<SideMenuItemProps, 'label'> & {
+  label?: string
+}
+
+export function MobileMenuItem({ id, label, icon, children, onClick, active }: MobileMenuItemProps) {
   const [isSheetOpen, setIsSheetOpen] = useState(false)
   const hasChildren = Boolean(children)
 
@@ -44,7 +48,7 @@ export function MobileMenuItem({ id, label, icon, children, onClick, active }: S
       </div>
 
       {hasChildren && (
-        <BottomSheet isOpen={isSheetOpen} onClose={() => setIsSheetOpen(false)} title={label}>
+        <BottomSheet isOpen={isSheetOpen} onClose={() => setIsSheetOpen(false)} title={label || ''}>
           {React.Children.map(children, (child) => {
             if (!React.isValidElement<SideMenuItemProps>(child)) return null
 
