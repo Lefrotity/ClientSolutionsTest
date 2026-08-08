@@ -1,6 +1,6 @@
 import { PanelLeftClose, PanelRightClose } from 'lucide-react'
 import React from 'react'
-import { MenuTooltip } from './tooltip'
+import { MenuTooltip } from './ui/tooltip'
 
 // About custom styles
 // I haven't done custom styles because it's our onw component
@@ -40,7 +40,7 @@ export type SideMenuItemProps = {
   children?: React.ReactNode
 }
 export function SideMenuItem({ id, label, icon, children, onClick, active }: SideMenuItemProps) {
-  const hasChildren = React.Children.count(children) > 0
+  const hasChildren = Boolean(children)
   const { collapsed } = React.useContext(SideMenuContext)
 
   const handleClick = () => {
@@ -64,9 +64,7 @@ export function SideMenuItem({ id, label, icon, children, onClick, active }: Sid
 
         <div className='py-1'>
           {React.Children.map(children, (child) => {
-            if (!React.isValidElement<SideMenuItemProps>(child)) {
-              return null
-            }
+            if (!React.isValidElement<SideMenuItemProps>(child)) return null
 
             return (
               <div
