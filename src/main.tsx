@@ -6,7 +6,7 @@ import AppRoutes from './routes/appRoutes.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename='/ClientSolutionsTest'>
       <AppRoutes />
     </BrowserRouter>
   </StrictMode>,
