@@ -30,19 +30,28 @@ export default function MobileNav() {
     <MobileMenu>
       <MobileMenuItem
         id={ROUTES.TRENDS}
+        label='Trends'
         icon={<ChartArea />}
         onClick={onItemClick}
         active={getIsActive(ROUTES.TRENDS)}
       />
-      <MobileMenuItem id={ROUTES.TASKS} icon={<Check />} onClick={onItemClick} active={getIsActive(ROUTES.TASKS)} />
+      <MobileMenuItem
+        id={ROUTES.TASKS}
+        label='Tasks'
+        icon={<Check />}
+        onClick={onItemClick}
+        active={getIsActive(ROUTES.TASKS)}
+      />
       <MobileMenuItem
         id={ROUTES.TICKETS}
+        label='Tickets'
         icon={<Tickets />}
         onClick={onItemClick}
         active={getIsActive(ROUTES.TICKETS)}
       />
       <MobileMenuItem
         id={ROUTES.PAYMENTS}
+        label='Payments'
         icon={<WalletCards />}
         onClick={onItemClick}
         active={getIsActive(ROUTES.PAYMENTS)}
@@ -105,14 +114,27 @@ export default function MobileNav() {
           active={getIsActive(ROUTES.INVENTORY.SUPPLIES)}
         />
       </MobileMenuItem>
-      <MobileMenuItem id={ROUTES.SHOP} icon={<Store />} onClick={onItemClick} active={getIsActive(ROUTES.SHOP)} />
+      <MobileMenuItem
+        id={ROUTES.SHOP}
+        label='Shop'
+        icon={<Store />}
+        onClick={onItemClick}
+        active={getIsActive(ROUTES.SHOP)}
+      />
       <MobileMenuItem
         id={ROUTES.REPORTS}
+        label='Reports'
         icon={<FileText />}
         onClick={onItemClick}
         active={getIsActive(ROUTES.REPORTS)}
       />
-      <MobileMenuItem id={ROUTES.TENDER} icon={<Gavel />} onClick={onItemClick} active={getIsActive(ROUTES.TENDER)} />
+      <MobileMenuItem
+        id={ROUTES.TENDER}
+        label='Tender'
+        icon={<Gavel />}
+        onClick={onItemClick}
+        active={getIsActive(ROUTES.TENDER)}
+      />
     </MobileMenu>
   )
 }

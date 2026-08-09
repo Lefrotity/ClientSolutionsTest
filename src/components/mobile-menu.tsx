@@ -39,11 +39,12 @@ export function MobileMenuItem({ id, label, icon, children, onClick, active }: M
       <div className='flex-1 min-w-0'>
         <div
           onClick={handleClick}
-          className={`flex cursor-pointer items-center justify-center rounded px-2 py-2 hover:bg-gray-200 ${
+          className={`flex flex-col cursor-pointer items-center justify-center rounded px-2 py-2 hover:bg-gray-200 ${
             active ? 'bg-gray-300' : ''
           }`}
         >
-          {icon && <span className='mx-1'>{icon}</span>}
+          {icon && <div className='mx-1'>{icon}</div>}
+          <div className='text-sm'>{label}</div>
         </div>
       </div>
 
@@ -60,7 +61,6 @@ export function MobileMenuItem({ id, label, icon, children, onClick, active }: M
                   child.props.active ? 'bg-gray-300' : ''
                 }`}
               >
-                {child.props.icon && <span>{child.props.icon}</span>}
                 <span>{child.props.label}</span>
               </div>
             )
